@@ -1,0 +1,36 @@
+ID:
+  name: "id"
+  in: "path"
+  type: "string"
+  required: true
+  description: "El id del usuario"
+
+NAME:
+  name: name
+  in: "formData"
+  type: "string"
+  required: true
+  description: "El nombre del usuario"
+
+LAST_NAME:
+  name: "last_name"
+  in: "formData"
+  type: "string"
+  required: true
+  description: "El apellido del usuario"
+
+EMAIL:
+  name: "email"
+  in: "formData"
+  type: "string"
+  required: true
+  description: "El email del usuario"
+
+PASSWORD:
+  name: "password"
+  in: "formData"
+  type: "string"
+  required: true
+  description: "La contraseña del usuario"
+
+

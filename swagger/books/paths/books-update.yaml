@@ -1,0 +1,21 @@
+tags:
+  - "Books"
+security:
+  - bearerAuth: []
+summary: "Actualizar libro"
+description: "Actualizar los datos de un libro por su id"
+parameters:
+  - $ref: ../parameters.yaml#/ID
+  - $ref: ../parameters.yaml#/NAME
+  - $ref: ../parameters.yaml#/LAST_NAME
+  - $ref: ../parameters.yaml#/EMAIL
+  - $ref: ../parameters.yaml#/PASSWORD
+responses:
+  200:
+    $ref: "#/components/responses/HTTP_OK"
+  400:
+    $ref: "#/components/responses/HTTP_BAD_REQUEST"
+  401:
+    $ref: "#/components/responses/HTTP_UNAUTHORIZED"
+  422:
+    $ref: ../../response.yaml#/HTTP_UNPROCESSABLE_ENTITY

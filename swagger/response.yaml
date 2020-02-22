@@ -1,0 +1,11 @@
+HTTP_OK:
+  description: "Operación exitosa"
+
+HTTP_BAD_REQUEST:
+  description: "Petición incorrecta"
+
+HTTP_UNPROCESSABLE_ENTITY:
+  description: "Error de validación de campos"
+
+HTTP_UNAUTHORIZED:
+  description: API key is missing or invalid

@@ -1,0 +1,27 @@
+/users:
+  get:
+    $ref: ./users/paths/users-index.yaml
+  post:
+    $ref: ./users/paths/users-store.yaml
+
+/users/{id}:
+  get:
+    $ref: ./users/paths/users-show.yaml
+  put:
+    $ref: ./users/paths/users-update.yaml
+  delete:
+    $ref: ./users/paths/users-delete.yaml
+
+/books:
+  get:
+    $ref: ./books/paths/books-index.yaml
+  post:
+    $ref: ./books/paths/books-store.yaml
+
+/books/{id}:
+  get:
+    $ref: ./books/paths/books-show.yaml
+  put:
+    $ref: ./books/paths/books-update.yaml
+  delete:
+    $ref: ./books/paths/books-delete.yaml

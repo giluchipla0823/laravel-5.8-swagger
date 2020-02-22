@@ -1,0 +1,25 @@
+{
+    "name": "laravel-5.8-swagger",
+    "version": "1.0.0",
+    "description": "<p align=\"center\"><img src=\"https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg\" width=\"400\"></p>",
+    "main": "resolve-swagger.js",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "build:swagger": "multi-file-swagger swagger/index.yaml > storage/api-docs/api-docs.json"
+    },
+    "author": "Gino Luiggi Chirinos Plasencia",
+    "license": "ISC",
+    "bin": {
+        "multi-file-swagger": "resolve-swagger.js"
+    },
+    "dependencies": {
+        "commander": "^4.1.1",
+        "js-yaml": "^3.13.1",
+        "json-refs": "^3.0.13"
+    },
+    "devDependencies": {
+        "diff": "^4.0.2"
+    }
+}

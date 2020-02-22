@@ -1,0 +1,13 @@
+tags:
+  - "Users"
+security:
+  - bearerAuth: []
+summary: "Listar usuarios"
+description: "Obtener información de todos los usuarios"
+responses:
+  200:
+    $ref: "#/components/responses/HTTP_OK"
+  400:
+    $ref: "#/components/responses/HTTP_BAD_REQUEST"
+  401:
+    $ref: "#/components/responses/HTTP_UNAUTHORIZED"

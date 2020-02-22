@@ -1,0 +1,466 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "L5 Swagger API - Laravel 5.8",
+    "description": "L5 Swagger API description",
+    "contact": [
+      {
+        "email": "luiggiplasencia0823@gmail.com"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/api"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "responses": {
+      "HTTP_OK": {
+        "description": "Operación exitosa"
+      },
+      "HTTP_BAD_REQUEST": {
+        "description": "Petición incorrecta"
+      },
+      "HTTP_UNPROCESSABLE_ENTITY": {
+        "description": "Error de validación de campos"
+      },
+      "HTTP_UNAUTHORIZED": {
+        "description": "API key is missing or invalid"
+      }
+    }
+  },
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Listar usuarios",
+        "description": "Obtener información de todos los usuarios",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/HTTP_OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/HTTP_BAD_REQUEST"
+          },
+          "401": {
+            "$ref": "#/components/responses/HTTP_UNAUTHORIZED"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Crear usuario",
+        "description": "Crear nuevo registro de usuario",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "El nombre del usuario"
+          },
+          {
+            "name": "last_name",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "El apellido del usuario"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "El email del usuario"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "La contraseña del usuario"
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/HTTP_CREATED"
+          },
+          "400": {
+            "$ref": "#/components/responses/HTTP_BAD_REQUEST"
+          },
+          "401": {
+            "$ref": "#/components/responses/HTTP_UNAUTHORIZED"
+          },
+          "422": {
+            "description": "Error de validación de campos"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Obtener usuario",
+        "description": "Obtener información de un usuario por su id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "El id del usuario"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/HTTP_OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/HTTP_BAD_REQUEST"
+          },
+          "401": {
+            "$ref": "#/components/responses/HTTP_UNAUTHORIZED"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Actualizar usuario",
+        "description": "Actualizar los datos de un usuario por su id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "El id del usuario"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "El nombre del usuario"
+          },
+          {
+            "name": "last_name",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "El apellido del usuario"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "El email del usuario"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "La contraseña del usuario"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/HTTP_CREATED"
+          },
+          "400": {
+            "$ref": "#/components/responses/HTTP_BAD_REQUEST"
+          },
+          "401": {
+            "$ref": "#/components/responses/HTTP_UNAUTHORIZED"
+          },
+          "422": {
+            "description": "Error de validación de campos"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Eliminar usuario",
+        "description": "Eliminar información de un usuario por su id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "El id del usuario"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/HTTP_OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/HTTP_BAD_REQUEST"
+          },
+          "401": {
+            "$ref": "#/components/responses/HTTP_UNAUTHORIZED"
+          }
+        }
+      }
+    },
+    "/books": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Listar libros",
+        "description": "Obtener información de todos los libros",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/HTTP_OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/HTTP_BAD_REQUEST"
+          },
+          "401": {
+            "$ref": "#/components/responses/HTTP_UNAUTHORIZED"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Books"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Crear libro",
+        "description": "Crear nuevo registro de libro",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "El nombre del usuario"
+          },
+          {
+            "name": "last_name",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "El apellido del usuario"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "El email del usuario"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "La contraseña del usuario"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/HTTP_OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/HTTP_BAD_REQUEST"
+          },
+          "401": {
+            "$ref": "#/components/responses/HTTP_UNAUTHORIZED"
+          },
+          "422": {
+            "description": "Error de validación de campos"
+          }
+        }
+      }
+    },
+    "/books/{id}": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Obtener libro",
+        "description": "Obtener información de un libro por su id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "El id del usuario"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/HTTP_OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/HTTP_BAD_REQUEST"
+          },
+          "401": {
+            "$ref": "#/components/responses/HTTP_UNAUTHORIZED"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Books"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Actualizar libro",
+        "description": "Actualizar los datos de un libro por su id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "El id del usuario"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "El nombre del usuario"
+          },
+          {
+            "name": "last_name",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "El apellido del usuario"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "El email del usuario"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "type": "string",
+            "required": true,
+            "description": "La contraseña del usuario"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/HTTP_OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/HTTP_BAD_REQUEST"
+          },
+          "401": {
+            "$ref": "#/components/responses/HTTP_UNAUTHORIZED"
+          },
+          "422": {
+            "description": "Error de validación de campos"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Books"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Eliminar libro",
+        "description": "Eliminar información de un libro por su id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "El id del usuario"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/HTTP_OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/HTTP_BAD_REQUEST"
+          },
+          "401": {
+            "$ref": "#/components/responses/HTTP_UNAUTHORIZED"
+          }
+        }
+      }
+    }
+  }
+}

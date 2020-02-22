@@ -1,0 +1,14 @@
+openapi: 3.0.0
+info:
+  $ref: ./swagger/info.yaml
+servers:
+  - url: /api
+schemes:
+  - http
+components:
+  securitySchemes:
+    $ref: ./swagger/security.yaml
+  responses:
+    $ref: ./swagger/response.yaml
+paths:
+  $ref: ./swagger/paths.yaml
